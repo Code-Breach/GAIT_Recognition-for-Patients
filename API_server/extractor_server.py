@@ -20,10 +20,10 @@ def upload_video():
     file.save(video_path)
 
     extractor_command = [
-         'cd ..\extractor\CLIFF',
-        'ffmpeg', video_path,
-        '-i', 'videos/',
-        '--ckpt', 'data/ckpt/hr48-PA43.0_MJE69.0_MVE81.2_3dpw.pt',
+         'python',  'extractor\CLIFF\demo.py',
+        '--input_path', video_path,
+        '--input_type', 'video',
+        '--ckpt', 'extractor\CLIFF\data/ckpt/hr48-PA43.0_MJE69.0_MVE81.2_3dpw.pt',
         '--backbone', 'hr48'
         '--batch_size', '1',
         '--save_results'
